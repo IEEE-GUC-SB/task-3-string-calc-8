@@ -2,22 +2,20 @@ import java.util.StringTokenizer;
 
 public class Kata {
 	public  int Add(String numbers) {
+		int sum =0;
 		StringTokenizer stringTokenizer = new StringTokenizer(numbers,",");
-		if(isEmpty(stringTokenizer)) {
-			return 0;
-		}
-		else {
+		while(!isEmpty(stringTokenizer)) {
 			if(isOneDigit(stringTokenizer)) {
 				int digit = convertStringToNumber(stringTokenizer);
-				return digit;
+				sum += digit;
 			}
 			else {
 				int digitOne = convertStringToNumber(stringTokenizer);
 				int digitTwo = convertStringToNumber(stringTokenizer);
-				return digitOne+digitTwo;
+				sum += digitOne+digitTwo;
 			}
 		}
-		
+		return sum;
 	}
 
 	private int convertStringToNumber(StringTokenizer stringTokenizer) {
