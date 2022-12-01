@@ -15,6 +15,10 @@ class KataTest {
 		String empty = "";
 		assertEquals(0,kata.Add(empty));
 	}
-	
+	@Test
+	void testSumOneDigit() {
+		String one = "1";
+		assertEquals(0,kata.Add(one));
+	}
 
 }
