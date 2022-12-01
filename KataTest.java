@@ -20,5 +20,10 @@ class KataTest {
 		String one = "1";
 		assertEquals(1,kata.Add(one));
 	}
+	@Test
+	void testSumTwoDigits() {
+		String two = "1,2";
+		assertEquals(3,kata.Add(two));
+	}
 
 }
