@@ -6,6 +6,12 @@ public class Kata {
 		if(isEmpty(stringTokenizer)) {
 			return 0;
 		}
+		else {
+			if(stringTokenizer.countTokens() == 1) {
+				int digit = Integer.parseInt(stringTokenizer.nextToken());
+				return digit;
+			}
+		}
 		return -1;
 	}
 
