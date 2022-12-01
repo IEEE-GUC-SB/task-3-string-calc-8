@@ -11,8 +11,13 @@ public class Kata {
 				int digit = convertStringToNumber(stringTokenizer);
 				return digit;
 			}
+			else {
+				int digitOne = convertStringToNumber(stringTokenizer);
+				int digitTwo = convertStringToNumber(stringTokenizer);
+				return digitOne+digitTwo;
+			}
 		}
-		return -1;
+		
 	}
 
 	private int convertStringToNumber(StringTokenizer stringTokenizer) {
