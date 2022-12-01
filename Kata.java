@@ -7,12 +7,20 @@ public class Kata {
 			return 0;
 		}
 		else {
-			if(stringTokenizer.countTokens() == 1) {
-				int digit = Integer.parseInt(stringTokenizer.nextToken());
+			if(isOneDigit(stringTokenizer)) {
+				int digit = convertStringToNumber(stringTokenizer);
 				return digit;
 			}
 		}
 		return -1;
+	}
+
+	private int convertStringToNumber(StringTokenizer stringTokenizer) {
+		return Integer.parseInt(stringTokenizer.nextToken());
+	}
+
+	private boolean isOneDigit(StringTokenizer stringTokenizer) {
+		return stringTokenizer.countTokens() == 1;
 	}
 
 	private boolean isEmpty(StringTokenizer stringTokenizer) {
