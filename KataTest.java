@@ -4,14 +4,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class KataTest {
-
+	Kata kata;
 	@BeforeEach
 	public void setUp() {
+		kata = new Kata();
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testSumEmptyString() {
+		String empty = "";
+		assertEquals(0,kata.Add(empty));
 	}
 
 }
