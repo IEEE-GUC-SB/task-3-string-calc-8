@@ -15,5 +15,6 @@ class KataTest {
 		String empty = "";
 		assertEquals(0,kata.Add(empty));
 	}
+	
 
 }
