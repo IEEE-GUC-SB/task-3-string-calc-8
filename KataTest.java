@@ -35,5 +35,10 @@ class KataTest {
 		String numbers = "1\n2,3";
 		assertEquals(6,kata.Add(numbers));
 	}
+	@Test
+	void testSupportDifferentDelimiters() {
+		String numbers = "//;\\n1;2";
+		assertEquals(3,kata.Add(numbers));
+	}
 
 }
