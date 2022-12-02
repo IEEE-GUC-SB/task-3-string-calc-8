@@ -30,5 +30,10 @@ class KataTest {
 		String numbers = "1,2,3,4,5,6,7,8,9";
 		assertEquals(45,kata.Add(numbers));
 	}
+	@Test
+	void testNewLineSeparator() {
+		String numbers = "1\n2,3";
+		assertEquals(6,kata.Add(numbers));
+	}
 
 }
