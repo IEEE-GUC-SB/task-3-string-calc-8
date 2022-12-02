@@ -1,22 +1,16 @@
 import java.util.StringTokenizer;
 
 public class Kata {
+	
 	public  int Add(String numbers) {
 		int sum =0;
 		StringTokenizer stringTokenizer = new StringTokenizer(numbers,",");
 		while(!isEmpty(stringTokenizer)) {
-			if(isOneDigit(stringTokenizer)) {
-				int digit = this.AddHelper(stringTokenizer.nextToken());
-				sum += digit;
-			}
-			else {
-				int digitOne = this.AddHelper(stringTokenizer.nextToken());
-				int digitTwo = this.AddHelper(stringTokenizer.nextToken());
-				sum += digitOne+digitTwo;
-			}
+		sum += this.AddHelper(stringTokenizer.nextToken());
 		}
 		return sum;
 	}
+	
 	public  int AddHelper(String numbers) {
 		int sum =0;
 		StringTokenizer stringTokenizer = new StringTokenizer(numbers,"\n");
@@ -33,6 +27,7 @@ public class Kata {
 		}
 		return sum;
 	}
+	
 
 	private int convertStringToNumber(StringTokenizer stringTokenizer) {
 		return Integer.parseInt(stringTokenizer.nextToken());
