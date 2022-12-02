@@ -6,6 +6,22 @@ public class Kata {
 		StringTokenizer stringTokenizer = new StringTokenizer(numbers,",");
 		while(!isEmpty(stringTokenizer)) {
 			if(isOneDigit(stringTokenizer)) {
+				int digit = this.AddHelper(stringTokenizer.nextToken());
+				sum += digit;
+			}
+			else {
+				int digitOne = this.AddHelper(stringTokenizer.nextToken());
+				int digitTwo = this.AddHelper(stringTokenizer.nextToken());
+				sum += digitOne+digitTwo;
+			}
+		}
+		return sum;
+	}
+	public  int AddHelper(String numbers) {
+		int sum =0;
+		StringTokenizer stringTokenizer = new StringTokenizer(numbers,"\n");
+		while(!isEmpty(stringTokenizer)) {
+			if(isOneDigit(stringTokenizer)) {
 				int digit = convertStringToNumber(stringTokenizer);
 				sum += digit;
 			}
