@@ -1,19 +1,24 @@
 import java.util.StringTokenizer;
 
 public class Kata {
-	//m4 fahem ex4
+	
 	public  int Add(String numbers) {
 		int sum =0;
+		if(isDifferentDelimiter(numbers)){
+			return this.AddHelper(numbers.substring(5),numbers.substring(2,3));
+		}
+		else{
 		StringTokenizer stringTokenizer = new StringTokenizer(numbers,",");
 		while(!isEmpty(stringTokenizer)) {
-		sum += this.AddHelper(stringTokenizer.nextToken());
+		sum += this.AddHelper(stringTokenizer.nextToken(),"\n");
+		}
 		}
 		return sum;
 	}
-	
-	public  int AddHelper(String numbers) {
+
+	public  int AddHelper(String numbers , String delimeter) {
 		int sum =0;
-		StringTokenizer stringTokenizer = new StringTokenizer(numbers,"\n");
+		StringTokenizer stringTokenizer = new StringTokenizer(numbers,delimeter);
 		while(!isEmpty(stringTokenizer)) {
 			if(isOneDigit(stringTokenizer)) {
 				int digit = convertStringToNumber(stringTokenizer);
@@ -40,5 +45,12 @@ public class Kata {
 	private boolean isEmpty(StringTokenizer stringTokenizer) {
 		return stringTokenizer.countTokens() == 0;
 	}
+	
+	private boolean isDifferentDelimiter(String numbers) {
+		return numbers.length()>0&&numbers.charAt(0) == '/';
+	}
+	
+	
+
 
 }
