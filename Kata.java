@@ -2,9 +2,11 @@ import java.util.StringTokenizer;
 
 public class Kata {
 	
-	public  int Add(String numbers) {
+	public  int Add(String numbers)  {
+		
 		int sum =0;
 		if(isDifferentDelimiter(numbers)){
+			
 			return this.AddHelper(numbers.substring(5),numbers.substring(2,3));
 		}
 		else{
@@ -13,6 +15,7 @@ public class Kata {
 		sum += this.AddHelper(stringTokenizer.nextToken(),"\n");
 		}
 		}
+		
 		return sum;
 	}
 
@@ -49,8 +52,5 @@ public class Kata {
 	private boolean isDifferentDelimiter(String numbers) {
 		return numbers.length()>0&&numbers.charAt(0) == '/';
 	}
-	
-	
-
 
 }
