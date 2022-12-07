@@ -31,7 +31,8 @@ public class Kata {
 				int digit = convertStringToNumber(stringTokenizer);
 				if(digit<0)
 					negatives.add(digit);
-				sum += digit;
+				if(!(digit>1000))
+					sum += digit;
 			}
 			else {
 				int digitOne = convertStringToNumber(stringTokenizer);
@@ -40,7 +41,10 @@ public class Kata {
 					negatives.add(digitOne);
 				if(digitTwo<0)
 					negatives.add(digitTwo);
-				sum += digitOne+digitTwo;
+				if(!(digitOne>1000))
+				     sum += digitOne;
+				if(!(digitTwo>1000))
+				     sum += digitTwo;
 			}
 		}
 		return sum;
