@@ -83,4 +83,9 @@ class KataTest {
 		assertEquals(6,kata.Add(numbers));
 		
 	}
+	@Test
+	void testMultipleDelimiters() throws Exception {
+		String numbers = "//[*][%]\n1*2%3";
+		assertEquals(6,kata.Add(numbers));
+	}
 }
