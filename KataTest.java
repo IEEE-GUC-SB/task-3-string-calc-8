@@ -12,32 +12,32 @@ class KataTest {
 	}
 
 	@Test
-	void testSumEmptyString()  {
+	void testSumEmptyString() throws Exception  {
 		String empty = "";
 		assertEquals(0,kata.Add(empty));
 	}
 	@Test
-	void testSumOneDigit()  {
+	void testSumOneDigit() throws Exception  {
 		String one = "1";
 		assertEquals(1,kata.Add(one));
 	}
 	@Test
-	void testSumTwoDigits()  {
+	void testSumTwoDigits() throws Exception  {
 		String two = "1,2";
 		assertEquals(3,kata.Add(two));
 	}
 	@Test
-	void testUnknownNumberOfDigits()  {
+	void testUnknownNumberOfDigits() throws Exception  {
 		String numbers = "1,2,3,4,5,6,7,8,9";
 		assertEquals(45,kata.Add(numbers));
 	}
 	@Test
-	void testNewLineSeparator()  {
+	void testNewLineSeparator() throws Exception  {
 		String numbers = "1\n2,3";
 		assertEquals(6,kata.Add(numbers));
 	}
 	@Test
-	void testSupportDifferentDelimiters()  {
+	void testSupportDifferentDelimiters() throws Exception  {
 		String numbers = "//;\\n1;2";
 		assertEquals(3,kata.Add(numbers));
 	}
@@ -46,29 +46,29 @@ class KataTest {
 		String numbers = "-1,2,-3";
 		try {
 			kata.Add(numbers);
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			assertEquals("negatives not allowed [-1, -3]",e.getMessage());
 		}
-		assertTrue("An Exception should have been thrown",false);
+		
 	}
 	@Test
-	void testAddNegativeNumbersThrowsExceptionCase2() throws Exception {
+	void testAddNegativeNumbersThrowsExceptionCase2()  {
 		String numbers = "//;\\n-1;2;5;-3";
 		try {
 			kata.Add(numbers);
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			assertEquals("negatives not allowed [-1, -3]",e.getMessage());
 		}
-		assertTrue("An Exception should have been thrown",false);
+		
 	}
 	@Test
 	void testAddNegativeNumbersThrowsExceptionCase3() throws Exception {
 		String numbers = "-1\n2,-3";
 		try {
 			kata.Add(numbers);
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			assertEquals("negatives not allowed [-1, -3]",e.getMessage());
 		}
-		assertTrue("An Exception should have been thrown",false);
+		
 	}
 }

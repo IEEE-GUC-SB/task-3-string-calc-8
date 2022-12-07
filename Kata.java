@@ -1,19 +1,23 @@
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Kata {
-	
-	public  int Add(String numbers)  {
-		
+	private ArrayList negatives = new ArrayList();
+	public  int Add(String numbers) throws Exception   {
 		int sum =0;
 		if(isDifferentDelimiter(numbers)){
-			
-			return this.AddHelper(numbers.substring(5),numbers.substring(2,3));
+			sum = this.AddHelper(numbers.substring(5),numbers.substring(2,3));
 		}
 		else{
 		StringTokenizer stringTokenizer = new StringTokenizer(numbers,",");
 		while(!isEmpty(stringTokenizer)) {
 		sum += this.AddHelper(stringTokenizer.nextToken(),"\n");
 		}
+		}
+		if(!negatives.isEmpty()) {
+			String message = negatives.toString();
+			negatives = new ArrayList();
+			throw new Exception("negatives not allowed "+message);
 		}
 		
 		return sum;
@@ -25,11 +29,17 @@ public class Kata {
 		while(!isEmpty(stringTokenizer)) {
 			if(isOneDigit(stringTokenizer)) {
 				int digit = convertStringToNumber(stringTokenizer);
+				if(digit<0)
+					negatives.add(digit);
 				sum += digit;
 			}
 			else {
 				int digitOne = convertStringToNumber(stringTokenizer);
 				int digitTwo = convertStringToNumber(stringTokenizer);
+				if(digitOne<0)
+					negatives.add(digitOne);
+				if(digitTwo<0)
+					negatives.add(digitTwo);
 				sum += digitOne+digitTwo;
 			}
 		}
