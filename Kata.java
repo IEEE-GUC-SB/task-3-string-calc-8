@@ -6,7 +6,12 @@ public class Kata {
 	public  int Add(String numbers) throws Exception   {
 		int sum =0;
 		if(isDifferentDelimiter(numbers)){
-			sum = this.AddHelper(numbers.substring(5),numbers.substring(2,3));
+			if(numbers.charAt(2) == '[') {
+				int index = numbers.indexOf("]");
+				sum = this.AddHelper(numbers.substring(index+2),numbers.substring(3,index));
+			}
+			else
+			   sum = this.AddHelper(numbers.substring(5),numbers.substring(2,3));
 		}
 		else{
 		StringTokenizer stringTokenizer = new StringTokenizer(numbers,",");
