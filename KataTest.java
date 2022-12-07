@@ -38,7 +38,7 @@ class KataTest {
 	}
 	@Test
 	void testSupportDifferentDelimiters() throws Exception  {
-		String numbers = "//;\\n1;2";
+		String numbers = "//;\n1;2";
 		assertEquals(3,kata.Add(numbers));
 	}
 	@Test
@@ -53,7 +53,7 @@ class KataTest {
 	}
 	@Test
 	void testAddNegativeNumbersThrowsExceptionCase2()  {
-		String numbers = "//;\\n-1;2;5;-3";
+		String numbers = "//;\n-1;2;5;-3";
 		try {
 			kata.Add(numbers);
 		} catch (Exception e) {

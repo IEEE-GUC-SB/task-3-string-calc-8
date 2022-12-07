@@ -7,11 +7,11 @@ public class Kata {
 		int sum =0;
 		if(isDifferentDelimiter(numbers)){
 			if(numbers.charAt(2) == '[') {
-				int index = numbers.indexOf("]");
-				sum = this.AddHelper(numbers.substring(index+2),numbers.substring(3,index));
+				String delimiters = getDelimiters(numbers.substring(2));
+				sum = this.AddHelper(numbers.substring(numbers.indexOf("\n")+1),delimiters);
 			}
 			else
-			   sum = this.AddHelper(numbers.substring(5),numbers.substring(2,3));
+			   sum = this.AddHelper(numbers.substring(4),numbers.substring(2,3));
 		}
 		else{
 		StringTokenizer stringTokenizer = new StringTokenizer(numbers,",");
@@ -71,5 +71,17 @@ public class Kata {
 	private boolean isDifferentDelimiter(String numbers) {
 		return numbers.length()>0&&numbers.charAt(0) == '/';
 	}
+	private String getDelimiters (String numbers) {
+		String delimiters = "";
+		while(numbers.indexOf("]") != -1) {
+			int start = numbers.indexOf("[");
+			int end = numbers.indexOf("]");
+			delimiters += numbers.substring(start+1, end);
+			numbers = numbers.substring(end+1);
+			}
+		return delimiters;
+		
+	}
+	
 
 }
