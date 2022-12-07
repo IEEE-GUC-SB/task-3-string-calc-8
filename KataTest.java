@@ -71,4 +71,10 @@ class KataTest {
 		}
 		
 	}
+	@Test
+	void testIgnoreGreaterThan1000() throws Exception {
+		String numbers = "2,1000";
+		assertEquals(2,kata.Add(numbers));
+		
+	}
 }
